@@ -1,0 +1,136 @@
+= Customer-service Getting Started Guide
+Gal Cohen;
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+:sectlinks:
+
+[introduction]
+= Introduction
+
+Customer-service is a RESTful microservice for saving customers detail and their credit card token/s
+
+[[overview]]
+= Overview
+
+[[overview-http-verbs]]
+== HTTP verbs
+Customer-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP verbs.
+|===
+| Verb | Usage
+
+| `GET`
+| Used to retrieve a resource
+
+| `POST`
+| Used to create a new resource
+
+| `PUT`
+| Used to update an existing resource, full updates only
+
+| `DELETE`
+| Used to delete an existing resource
+|===
+
+[[overview-http-status-codes]]
+== HTTP status codes
+Customer-service tries to adhere as closely as possible to standard HTTP and REST conventions in its
+use of HTTP status codes.
+
+The actual response will depend on the request method used.
+In a GET request, the response will contain an entity corresponding to the requested resource.
+In a POST request, the response will contain an entity describing or containing the result of the action.
+
+|===
+| Status code | Usage
+
+| `200 OK`
+| Standard response for successful HTTP requests.
+
+| `201 Created`
+| The request has been fulfilled and resulted in a new resource being created.
+
+| `204 No Content`
+| The server successfully processed the request, but is not returning any content.
+
+| `400 Bad Request`
+| The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).
+
+| `404 Not Found`
+| The requested resource could not be found but may be available again in the future. Subsequent requests by the client are permissible.
+
+| `405 Method Not Allow`
+| The requested method doesn't have an appropiate handler.
+
+| `415 Unsupported Media Type`
+| The resquest resource was sent with unsupported media type.
+
+| `500 Internal Server Error`
+| The request make an error in the server.
+|===
+
+[[resources]]
+= Resources
+
+
+[[resources-customer]]
+== Customer
+The Customer resource is used to create, modify, delete and list customers.
+
+[[resource-customers-delete]]
+=== Deleting customer
+A `DELETE` request deletes an existing customer.
+
+==== Example request
+
+include::{snippets}/deleteCustomer/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/deleteCustomer/http-response.adoc[]
+
+
+[[resource-customer-get]]
+=== Getting customer
+A `GET` request os specific customer.
+
+include::{snippets}/getCustomer/response-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/getCustomer/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/getCustomer/http-response.adoc[]
+
+
+[[resource-customer-create]]
+=== Creating customer
+A `POST` request creates a new customer.
+
+include::{snippets}/createCustomer/response-fields.adoc[]
+
+==== Example request
+
+include::{snippets}/createCustomer/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/createCustomer/http-response.adoc[]
+
+
+[[resource-customer-update]]
+=== Updating customer
+A `PUT` request updates an existing customer.
+
+==== Example request
+
+include::{snippets}/updateCustomer/curl-request.adoc[]
+
+==== Example response
+
+include::{snippets}/updateCustomer/http-response.adoc[]
