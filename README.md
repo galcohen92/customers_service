@@ -25,7 +25,7 @@ Maven
 Spring 
 
 
-##Docker option
+##Docker option - on Windows
 
 Run:
 
